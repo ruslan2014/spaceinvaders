@@ -1,0 +1,118 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<style>
+
+#nave{
+
+	position: absolute;
+	width: 100px;
+	height: 50px;
+	left: 400px;
+	bottom: 20px;
+background-color: grey;
+background-repeat: no-repeat;
+
+}
+#juego{
+
+	position: relative;
+	width: 800px;
+	height: 480px;
+background-color: blue;
+
+
+
+}
+
+.misil{
+	position: absolute;
+	width: 20px;
+	height: 60px;
+	bottom: 20px;
+	left: 40px;
+	background-color: red;
+}
+
+	</style>	
+
+</head>
+<body>
+
+<div id="juego">
+
+    
+    	<div id="nave">
+    		
+
+    		<div id="misil"></div>
+    	</div>
+   
+	
+</div>
+
+
+<script type="text/javascript">
+	
+
+    var $body = $('body');
+	var $nave = $('#nave');
+	var $pantalla = $('#juego');
+	//var $misil = $('#misil');
+	var iVelNav = 20;
+var iVeldis = 80;
+
+	//centrar la nave
+	/*var posNavCen = parseInt($pantalla.css('width')) / 2) - (parseInt($nave.css('width')) / 2);
+$nave.css('left', posNavCen + 'px'); */
+
+
+    //centrar eje y del disparo
+    var posDisY = parseInt($nave.css('bottom')) + parseInt($nave.css('height'));
+
+//Tecla que ha pulsado 
+    $body.keydown(function(event) {
+    	console.log( "Tecla pulsada: " + event.which);
+		switch(event.which){
+			case 39://derecha
+			       if(parseInt($pantalla.css('width')) - iVelNav - parseInt($nave.css('width')) > $nave.position().left) 
+			        	$nave.css('left','+=' + iVelNav + 'px');
+			        break;
+
+			case 37://Izquierda
+			        if( iVelNav < parseInt($nave.css('left')))
+                      $nave.css('left','-=' + iVelNav + 'px');
+                break;
+
+            case 90://disparo letra z
+
+              var iPosX = parseInt($nave.css('left')) + parseInt($nave.css('width')) / 2;
+              
+              var $divDisparo = $('<div>');
+              $divDisparo.addClass('misil');
+              $divDisparo.css({
+              	   'left' : iPosX + 'px',
+              	   'bottom' : posDisY + 'px'
+              });
+              $pantalla.append($divDisparo);
+
+              $('.disparo').animate({
+              	'bottom' : parseInt($pantalla.css('height'))
+              }, iVelDis, function(){
+              	//cuando termina la amimacion la elemina
+              });
+              
+                       $pantalla.append($divDisparo);
+            break;    
+        }
+	});
+
+	
+   
+  
+
+</script>
+</body>
+</html>
