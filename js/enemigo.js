@@ -10,30 +10,12 @@ var Enemigo = function(iniPosX, iniPosY) {
 	this.crearEnemigo = function() {
 		this.$divEnemigo = $('<div>');
 		this.$divEnemigo.addClass('enemigo');
-		this.$divEnemigo.css('top', this.iPosX + 'px');
-		this.$divEnemigo.css('left', this.iPosY + 'px');
+		this.$divEnemigo.css('top', this.iPosY + 'px');
+		this.$divEnemigo.css('left', this.iPosX + 'px');
 		this.$pantalla.append(this.$divEnemigo);
+	
 	}
 
-	this.animaIzq = function() {
-		this.$divEnemigo.animate({
-			'left' : this.iPosX - this.iOsci
-		},   'linear' , this.iTiemAni, function(){
-                this.animarDer();
-		});
-	}
-
-		this.animaDer = function() {
-		this.$divEnemigo.animate({
-			'left' : this.iPosX - this.iOsci
-		},   'linear' , this.iTiemAni, function(){
-                this.animarIzq();
-		});
-	}
-
-	this.animar = function(){
-		animarDer();
-	}
 
        this.crearEnemigo();
 }

@@ -1,4 +1,0 @@
-spaceinvaders
-=============
-
-juego de marcianos

@@ -44,4 +44,18 @@ $nave.css('left', posNavCen + 'px'); */
  }
         moverEnemigosDer();*/
 
-        var moverDerecha
+       //Movimientos
+var moverDer = function() {
+  if(parseInt($pantalla.css('width')) - iVelNav - parseInt($nave.css('width')) > parseInt($nave.css('left'))) 
+        $nave.css('left', '+=' + iVelNav + 'px');
+}
+
+var moverIzq = function() {
+  if(iVelNav < parseInt($nave.css('left')))
+        $nave.css('left', '-=' + iVelNav + 'px');
+}
+
+var disparar = function() {
+  new disparo();
+}
+

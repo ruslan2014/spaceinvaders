@@ -79,6 +79,19 @@ background-color: blue;
 	background-image: url(img/derecha.jpg);
 }
 
+#controlDisp{
+
+		position: absolute;
+		
+	width: 168px;
+	height: 168px;
+	bottom: 50px;
+	left: 400px;
+	z-index: 500;
+	
+	background-image: url(img/pistola.jpg);
+}
+
 
 	</style>	
 
@@ -99,8 +112,10 @@ background-color: blue;
 	<div id="controlDer"></div>
 
 	<div id="controlIzq"></div>
-</div>
 
+	<div id="controlDisp"></div>
+</div>
+<script src="js/disparo.js"></script>
 <script type="text/javascript" src="js/enemigo.js"></script>
 
 <script type="text/javascript">
@@ -173,7 +188,8 @@ $nave.css('left', posNavCen + 'px'); */
   
 
 </script>
-<script src="js/controlador.js"></script>
 <script src="js/modelos.js"></script>
+<script src="js/controlador.js"></script>
+
 </body>
 </html>
